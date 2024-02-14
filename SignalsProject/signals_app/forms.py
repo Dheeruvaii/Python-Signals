@@ -4,6 +4,9 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
 
 
+"""
+These forms are designed to interact with Django authentication system and user profiles.
+"""
 class UserRegisterForm(UserCreationForm):
     email=forms.EmailField()    
     class Meta:
@@ -19,5 +22,5 @@ class UserUpdateForm(forms.ModelForm):
 
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
-        model=Profile
-        fields=['image']
+        model = Profile
+        fields = ['Image']

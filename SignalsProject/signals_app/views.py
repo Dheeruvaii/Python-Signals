@@ -13,8 +13,8 @@ def register(request):
             messages.success(request,f'account has been created!You are able to login')
             return redirect('login')
         else:
-            form-UserRegisterForm()
-            return render(request,'user/register.html',{'form':form})
+            form = UserRegisterForm()
+            return render(request,'SignalsProject\signals_app\templates\register.html',{'form':form})
         
 
 @login_required
@@ -39,4 +39,4 @@ def profile(request):
         'p_form': p_form
     }
  
-    return render(request, 'users/profile.html', context)
+    return render(request, 'SignalsProject\signals_app\templates\profile.html', context)
