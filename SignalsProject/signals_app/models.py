@@ -1,25 +1,23 @@
 from django.db import models
-
-
-
+ 
+# Create your models here. 
 fruits ={
     ('Apple','Apple'),
     ('Mango','Mango'),
     ('Banana','Banana'),
     ('Orange','Orange')
 }
-
+ 
 class Purchase(models.Model):
-    name=models.CharField(max_length=30,choices=fruits)
-    quantity =models.CharField(max_length=30)
-
-
+    item = models.CharField(max_length=10, choices=fruits)
+    quantity = models.IntegerField()
+ 
     def __str__(self):
-        return self.name
-    
-
-class Meta:
-    verbose_name ="Purchase"
+        return self.item
+ 
+    class Meta:
+        verbose_name = 'Purchase'
+        verbose_name_plural = 'Purchases'
 
 
 class Stock(models.Model):
