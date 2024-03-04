@@ -1,18 +1,34 @@
 from django.db import models
-from django.contrib.auth.models import User,Group
-from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import Permission
-from PIL import Image
 
 
- 
-class Profile(models.Model):
-    """
-        establishes a one-to-one relationship with the built-in User model
-    """
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
-    image=models.ImageField(default='default.jpg', upload_to='profile_pics')
+
+fruits ={
+    ('Apple','Apple'),
+    ('Mango','Mango'),
+    ('Banana','Banana'),
+    ('Orange','Orange')
+}
+
+class Purchase(models.Model):
+    name=models.CharField(max_length=30,choices=fruits)
+    quantity =models.CharField(max_length=30)
+
 
     def __str__(self):
-        return f'{self.user.username} Profile'
+        return self.name
     
+
+class Meta:
+    verbose_name ="Purchase"
+
+
+class Stock(models.Model):
+    available_item = models.CharField(max_length=10, choices=fruits)
+    available_quantity = models.IntegerField()
+ 
+    def __str__(self):
+        return self.available_item
+ 
+    class Meta:
+        verbose_name = 'Stock'
+        verbose_name_plural = 'Stocks'
