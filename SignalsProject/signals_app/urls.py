@@ -11,5 +11,5 @@ router.register(r'purchase', PurchaseViewset, basename='Purchase-Itemlists')
 
 
 urlpatterns = [
-    path('/', include('router.urls')),
+    path('', include(router.urls)),
 ]
